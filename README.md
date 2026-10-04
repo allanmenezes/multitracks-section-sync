@@ -1,47 +1,46 @@
-# MultiTracks Section Cloner
+<div align="center">
 
-Aplicação desktop em Python com interface moderna (CustomTkinter) e automação via Selenium para replicar automaticamente estruturas de seções e tempos (*timecodes*) entre músicas na plataforma MultiTracks.
+# 🎵 MultiTracks Section Cloner
 
-## Funcionalidades
+### *Sincronização e replicação automatizada de seções e timecodes para MultiTracks*
 
-- **Dupla Sessão Simultânea:** Abre a conta de origem em sessão regular e a de destino em modo anônimo (`--incognito`), permitindo transferência entre contas distintas sem conflito de login.
-- **Tratamento Automático de Cookies:** Detecta e aceita os banners de cookies da plataforma para evitar travamentos de clique.
-- **Normalização de Estrutura:** Garante a seção inicial "Contagem (00:00:000)" no destino e replica dinamicamente as seções subsequentes ("Introdução", "Versos", "Refrão", etc.).
-- **Entrada Simplificada por ID:** Permite informar apenas o `libraryID` numérico da música (ex: `4721009`) ou colar o link completo.
-- **Persistência de Credenciais:** Salva e-mails e senhas localmente no arquivo `config.json` para agilizar execuções futuras.
+[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
+[![Selenium](https://img.shields.io/badge/Selenium-4.15%2B-43B02A.svg?style=for-the-badge&logo=selenium&logoColor=white)](https://www.selenium.dev/)
+[![CustomTkinter](https://img.shields.io/badge/UI-CustomTkinter-blueviolet.svg?style=for-the-badge)](https://github.com/TomSchimansky/CustomTkinter)
+[![License](https://img.shields.io/badge/License-MIT-black.svg?style=for-the-badge)](LICENSE)
 
-## Pré-requisitos
+<p align="center">
+  Uma ferramenta desktop moderna criada para clonar estruturas de seções (Versos, Refrão, Pontes, etc.) e marcações de tempo entre músicas no MultiTracks em poucos segundos.
+</p>
 
-- Python 3.10 ou superior
-- Google Chrome instalado
+[Funcionalidades](#-funcionalidades) •
+[Demonstração](#-como-funciona) •
+[Instalação](#-instalação) •
+[Como Usar](#-como-usar) •
+[Estrutura](#-estrutura-do-projeto) •
+[Avisos](#-segurança)
 
-## Instalação
+---
 
-1. Clone o repositório:
-   ```bash
-   git clone [https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git](https://github.com/SEU_USUARIO/NOME_DO_REPOSITORIO.git)
-   cd NOME_DO_REPOSITORIO
-   ```
+</div>
 
-2. Crie e ative um ambiente virtual (recomendado):
-   ```cmd
-   python -m venv venv
-   venv\Scripts\activate
-   ```
+## 🚀 Funcionalidades
 
-3. Instale as dependências:
-   ```cmd
-   pip install -r requirements.txt
-   ```
+- **⚡ Entrada Simplificada por ID:** Apenas digite o `libraryID` da música (ex.: `4721009`) ou cole o link completo — o app extrai e formata o link automaticamente.
+- **🎭 Dupla Sessão Isolada:** Abre a conta de origem em navegação regular e a conta de destino em modo anônimo (`--incognito`), permitindo transferência simultânea entre contas diferentes sem conflito de login.
+- **🛡️ Tratamento Automático de Cookies:** Detecta e aceita os banners de cookies da plataforma instantaneamente para evitar cliques interceptados ou travamentos de tela.
+- **🎼 Normalização Inteligente de Estrutura:**
+  - Padroniza a primeira seção como `Contagem (00:00:000)`.
+  - Ignora a contagem inicial da origem para evitar duplicidade.
+  - Replica todas as seções subsequentes (`Introdução`, `Verso 1`, `Refrão`, etc.) adicionando linhas dinamicamente no destino.
+- **🔑 Persistência Local Segura:** Salva suas credenciais em `config.json` no primeiro uso para que você não precise redigitar sempre que abrir a ferramenta.
+- **🎨 Interface Moderna:** Visual escuro nativo (*Dark Mode*), barra de progresso em tempo real e terminal de logs integrado feito em `CustomTkinter`.
 
-## Como Executar
+---
 
-Execute o arquivo principal:
+## 🖥️ Como Funciona
 
-```cmd
-python main.py
-```
-
-1. Informe o e-mail, senha e ID da música da **Conta de Origem**.
-2. Informe o e-mail, senha e ID da música da **Conta de Destino**.
-3. Clique em **"Iniciar Clonagem de Seções"**.
+```text
+[ Conta de Origem ]  ──(Lê seções e timecodes)──┐
+                                                 ├─► [ MultiTracks Section Cloner ]
+[ Conta de Destino ] ◄──(Cria e salva seções)───┘
